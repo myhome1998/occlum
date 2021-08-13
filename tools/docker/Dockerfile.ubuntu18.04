@@ -117,8 +117,8 @@ RUN cd java && ./install_dragonwell.sh && rm -rf /tmp/java
 ENV PATH="/opt/occlum/toolchains/jvm/bin:$PATH"
 
 # Install SGX PSW
-ARG PSW_VERSION=2.13.103.1
-ARG DCAP_VERSION=1.10.103.1
+ARG PSW_VERSION=2.14.100.2
+ARG DCAP_VERSION=1.11.100.2
 RUN apt-get update && aptitude install -y \
         libsgx-launch-dev=$PSW_VERSION-bionic1 \
         libsgx-epid-dev=$PSW_VERSION-bionic1 \
@@ -153,7 +153,7 @@ RUN apt-get update && aptitude install -y \
 
 # Install SGX SDK
 WORKDIR /tmp
-RUN git clone -b sgx_2.13.3_for_occlum https://github.com/occlum/linux-sgx && \
+RUN git clone -b sgx_2.14_for_occlum https://github.com/occlum/linux-sgx && \
     mkdir /etc/init && \
     cd linux-sgx && \
     make preparation && \
